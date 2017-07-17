@@ -6,14 +6,15 @@ before_action :authenticate_user!
 	end
 
 	def new
-		@post = Post.new
+		@post = current_user.posts.build
 	end
 
 	def create
-		@post = Post.create(post_params)
-		if @post.save
+		@post = current_user.posts.build(post_params)
+
+		if @post = Post.create(post_params)
 			flash[:success] = "Your post has been created."
-			redirect_to @post
+			redirect_to posts_path
 		else
 			flash[:alert] = "Halt, you fiend! You need an image to post here!"
 			render :new
@@ -50,6 +51,6 @@ before_action :authenticate_user!
 	private
 
 	def post_params
-		params.require(:post).permit(:caption, :image)
+		params.require(:post).permit(:caption, :image, :user_id)
 	end
 end

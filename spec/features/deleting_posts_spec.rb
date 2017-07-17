@@ -5,7 +5,7 @@ feature 'Deleting posts' do
 		user = create(:user)
 		sign_in_with user
 		
-		post = create(:post, caption: 'Abs for days.')
+		post = create(:post, caption: 'Abs for days.', user: user)
 
 		visit '/'
 
