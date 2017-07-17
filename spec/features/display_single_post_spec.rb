@@ -1,7 +1,12 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Can view individual posts' do
-	scenario 'Can click and view  asingle post' do
+	background do
+		user = create(:user)
+		sign_in_with user
+	end
+
+	scenario 'Can click and view a single post' do
 		post = create(:post)
 
 		visit '/'

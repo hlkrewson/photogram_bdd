@@ -1,6 +1,11 @@
 require 'rails_helper.rb'
 
+
 feature 'Creating posts' do
+	background do
+		user = create(:user)
+		sign_in_with user
+	end
 	scenario 'can create a post' do
 		visit '/'
 		click_link 'New Post'
@@ -17,7 +22,7 @@ feature 'Creating posts' do
 	fill_in 'Caption', with: "No picutre because YOLO"
 	click_button 'Create Post'
 	expect(page).to have_content('Halt, you fiend! You need an image to post here!')
-end
+	end
 end
 
 

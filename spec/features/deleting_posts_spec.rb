@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Deleting posts' do
 	background do
+		user = create(:user)
+		sign_in_with user
+		
 		post = create(:post, caption: 'Abs for days.')
 
 		visit '/'
