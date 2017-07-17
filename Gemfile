@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'paperclip', '~> 5.0.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3'
+gem 'devise'
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
